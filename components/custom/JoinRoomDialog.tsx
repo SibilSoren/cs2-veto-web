@@ -23,7 +23,7 @@ import { globalTeamName } from "@/store/app-store";
 export function JoinRoomDialog() {
   const router = useRouter();
   const [roomID, setRoomID] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [, setErrorMessage] = useState("");
   const [teamName, setTeamName] = useAtom(globalTeamName);
 
   useEffect(() => {

@@ -10,7 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
-import { useState } from "react";
+// import { useState } from "react";
 import socket from "@/utils/socket";
 import { useAtom } from "jotai";
 import { globalRoomID, globalTeamName } from "@/store/app-store";
@@ -26,7 +26,7 @@ export function CreateRoomDialog({
   const router = useRouter();
   const [teamName, setTeamName] = useAtom(globalTeamName);
   const [, setRoomID] = useAtom(globalRoomID);
-  const [, setBestOf] = useState("3");
+  // const [, setBestOf] = useState("3");
 
   const createRoom = () => {
     const generatedRoomID = Math.random().toString(36).substring(2, 10);
@@ -34,6 +34,10 @@ export function CreateRoomDialog({
     socket.emit("createRoom", generatedRoomID);
     router.push(`/room/${generatedRoomID}`);
   };
+
+  // const fun = (e, value: string): void => {
+  //   setBestOf(value);
+  // };
   return (
     <Dialog open={open}>
       {/* <DialogTrigger asChild>
@@ -66,7 +70,7 @@ export function CreateRoomDialog({
             <RadioGroup
               defaultValue="3"
               className="col-span-3 mt-2"
-              onChange={(_e: unknown, value: string) => setBestOf(value)}
+              // onChange={fun}
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="1" id="r1" disabled />
